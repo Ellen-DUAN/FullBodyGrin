@@ -2,24 +2,38 @@
 <html>
 <head>
 <title>Workout Recommendation</title>
-<link rel="stylesheet" href="recommendation.css">
+<link rel="stylesheet" href="css/recommendation.css">
 </head>
 <body>
 
 <h1>Workout Recommendations</h1>
-<button type="button" id="Bbtn">Back</button>
+<div id="top">
+  <button type="button" id="Bbtn">Back</button>
+  <div class="color" id="firstC"></div>
+  <div class="status">Completed</div>
+  <div class="color" id="secondC"></div>
+  <div class="status">Need to be completed</div>
+  <div class="color" id="thirdC"></div>
+  <div class="status">Uncompleted</div>
+</div>
 <div class="cols">
-    <div class="col" id="left">Goal 1: Run 6 km
+    <div class="col" id="g1">Goal 1: Run 6 km
+    </br>
+    <p class="date" >Complete by: 03/01/2021</p>
     </br>
     <p>Run from UNSW to Bondi Beach</p>
     <button type="button" class="Dbtn">Delete</button>
     </div>
-    <div class="col" id="middle">Goal 2: Burn 500 calories 
+    <div class="col" id="g2">Goal 2: Burn 500 calories 
+    </br>
+    <p class="date">Complete by: 15/03/2021</p>
     </br>
     <p>Cycle 16 km</p>
     <button type="button" class="Dbtn">Delete</button>
     </div>
-    <div class="col">Goal 3: Burn 300 calories
+    <div class="col" id="g3">Goal 3: Burn 300 calories
+    </br>
+    <p class="date">Complete by: 16/02/2021</p>
     </br>
     <p>Run 5 km</p>
     <button type="button" class="Dbtn">Delete</button>
