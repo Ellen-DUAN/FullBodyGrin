@@ -1,12 +1,12 @@
 body {
     background: linear-gradient(#28a746e5, #17a3b89a, #007bffca) no-repeat center fixed;
     color: whitesmoke;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 h1 {
     text-align:center;
-    margin-top:100px;
-    font-family:Arial, Helvetica, sans-serif
+    margin-top:100px
 }
 
 p {
@@ -35,7 +35,6 @@ p {
 .cols {
     text-align:center;
     margin-top:50px;
-    font-family:Arial, Helvetica, sans-serif;
     font-size:25px
 }
 
@@ -49,10 +48,49 @@ p {
     background-color:#17a2b8
 }
 
-#left {
-    margin:0 80px 0 100px
+#g1 {
+    margin:0 80px 0 100px;
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
-#middle {
+#g2 {
     margin:0 80px 0 0
+}
+
+#g3 {
+    background-color: #7b807a;
+    border-color:#7b807a
+}
+
+.color {
+    margin:25px 0 0 100px;
+    height:30px;
+    width:100px
+}
+
+#firstC {
+    background-color: #28a745
+}
+
+#secondC {
+    background-color: #17a2b8
+}
+
+#thirdC {
+    background-color: #7b807a
+}
+
+#top {
+    display: inline-flex;
+    height: 60px;
+    width:100%
+}
+
+.status {
+    margin:30px 0 0 30px
+}
+
+.date {
+    margin: 10px 0 0 0
 }
