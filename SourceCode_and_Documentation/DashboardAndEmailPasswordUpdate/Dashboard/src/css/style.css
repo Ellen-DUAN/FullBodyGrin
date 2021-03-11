@@ -1,0 +1,34 @@
+h3 {
+    padding-top: 50px; 
+}
+
+p {
+    padding-left: 20px;
+}
+
+body {
+    width: 100%;
+    height: 100%;   
+    background: linear-gradient(#28a746e5, #17a3b89a, #007bffca) no-repeat center fixed;  
+    color: whitesmoke; 
+}
+
+.card-header {
+    background-color: #ffffff00;
+    }
+
+.card-body {
+    background-color: #ffffff00;
+}
+
+.card-footer {
+    background-color: #ffffff00;
+}
+
+.btn-block {
+    color: white;
+}
+
+.btn-outline {
+    color: white;
+}
