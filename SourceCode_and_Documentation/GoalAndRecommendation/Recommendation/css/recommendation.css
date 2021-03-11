@@ -1,0 +1,58 @@
+body {
+    background: linear-gradient(#28a746e5, #17a3b89a, #007bffca) no-repeat center fixed;
+    color: whitesmoke;
+}
+
+h1 {
+    text-align:center;
+    margin-top:100px;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+p {
+    margin-top:80px
+}
+
+.Dbtn {
+    margin-top:50px;
+    padding:10px 15px 10px 15px;
+    background-color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+}
+
+#Bbtn {
+    margin:20px 0 0 100px;
+    padding:10px 15px 10px 15px;
+    background-color: #3180de;
+    color:white;
+    border-radius:10px;
+    border:none;
+    font-size:18px
+}
+
+.cols {
+    text-align:center;
+    margin-top:50px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:25px
+}
+
+.col {
+    float:left;
+    width:19%;
+    border-style:solid;
+    padding:40px;
+    border-radius:10px;
+    border-color:#17a2b8;
+    background-color:#17a2b8
+}
+
+#left {
+    margin:0 80px 0 100px
+}
+
+#middle {
+    margin:0 80px 0 0
+}
