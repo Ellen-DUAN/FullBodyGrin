@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Workout Data</title>
+
+    <meta name="HalfStack" content="Data from workout">
+
+    <link href="css1/bootstrap.min.css" rel="stylesheet">
+    <link href="css1/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+
+
+	<div class="col-md-6">
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<br>
+				<a class="nav-link btn btn-primary" href="../DashboardAndEmailPasswordUpdate/Dashboard/src/dashboard.html">Dashboard</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>
+				Workout Data
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>
+				Completion Date
+			</h3>
+            <input type="text" id="date" name="fname" value="08/03/21" disabled="True"><br>
+			<h3>
+				Workout Type
+			</h3>
+            <select name="cars" id="workout_type" disabled="True">
+                <option value="volvo" selected="True">Running</option>
+                <option value="saab">Cycling</option>
+            </select><br>
+			<h3>
+                Total Distance
+			</h3>
+            <input type="text" id="distance" name="fname" value="10km" disabled="True"><br>
+			<h3>
+				Total Calories Burnt
+			</h3>
+            <input type="text" id="calories" name="fname" value="500" disabled="True"><br>
+			<h3>
+				Total Time Spent in minutes
+			</h3>
+            <input type="text" id="time" name="fname" value="50" disabled="False"><br>
+		</div>
+		<div class="col-md-6">
+			<h3>
+				Map:
+			</h3>
+
+			<div class="img1-container">
+				<img alt="Smiling face" src="Map.png" />
+			</div>
+			
+		</div>
+		<a href="../../SettingsAndLogsProto/workoutHistory.html" class="btn btn-primary" role="button">Back</a>
+		<div>
+			<button type="button" id="editb" class="btn">Edit</button>
+		</div>
+        <div>
+			<button type="button" id="cancelb" class="btn">Cancel</button>
+		</div>
+        <div>
+			<button type="button" id="saveb" class="btn">Save</button>
+		</div>
+	</div>
+	<div id="myModal1" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close1">&times;</span>
+		  <p id="modalText1">Changes are saved successfully!</p>
+		</div>
+	  
+	</div>
+    <div id="myModal2" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close2">&times;</span>
+		  <p id="modalText2">Do you want to discard changes?</p>
+          <button type="button" id="discardb" class="btn">Discard</button>
+		</div>
+	  
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+	<script type="text/javascript" src="./modal1.js"></script>
+  </body>
+</html>
