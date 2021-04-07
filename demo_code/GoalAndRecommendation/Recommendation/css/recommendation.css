@@ -1,0 +1,163 @@
+body {
+    background: linear-gradient(#28a746e5, #17a3b89a, #007bffca) no-repeat center fixed;
+    color: whitesmoke;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+h1 {
+    text-align:center;
+    margin-top:100px
+}
+
+p {
+    margin-top:80px
+}
+
+.Dbtn {
+    margin-top:50px;
+    padding:10px 15px 10px 15px;
+    background-color:#3180de;
+    border:solid;
+    border-radius:10px;
+    font-size:18px;
+    border-color:#3180de;
+    color: white
+}
+
+#Bbtn {
+    margin:20px 0 0 100px;
+    padding:10px 15px 10px 15px;
+    background-color: #3180de;
+    color:white;
+    border-radius:10px;
+    font-size:18px
+}
+
+.cols {
+    text-align:center;
+    margin-top:50px;
+    font-size:25px
+}
+
+.col {
+    float:left;
+    width:30%;
+    margin:20px
+}
+
+.col_backup {
+    padding:40px;
+    border-style:solid;
+    border-radius:10px;
+    border-color:#17a2b8;
+    background-color:#17a2b8;
+    margin-bottom:30px
+}
+
+.re {
+    padding:40px;
+    border-style:solid;
+    border-radius:10px;
+    margin-bottom:30px
+}
+/*
+#g1 {
+    margin:0 80px 0 100px;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#g2 {
+    margin:0 80px 0 0
+}
+
+#g3 {
+    background-color: #7b807a;
+    border-color:#7b807a
+}
+*/
+
+.color {
+    margin:25px 0 0 100px;
+    height:30px;
+    width:100px
+}
+
+#firstC {
+    background-color: #28a745
+}
+
+#secondC {
+    background-color: #17a2b8
+}
+
+#thirdC {
+    background-color: #7b807a
+}
+
+#top {
+    display: inline-flex;
+    height: 60px;
+    width:100%
+}
+
+.status {
+    margin:30px 0 0 30px
+}
+
+.date {
+    margin: 10px 0 0 0
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: 30%;
+}
+
+#modalText {
+    margin: 60px 30px 0px 70px;
+    color: black;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.btn {
+    padding:10px 15px 10px 15px;
+    background-color: #3180de;
+    color:white;
+    border-radius:10px;
+    border:none;
+    font-size:18px
+}

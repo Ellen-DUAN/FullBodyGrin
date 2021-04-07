@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Workout Recommendation</title>
+<link rel="stylesheet" href="css/recommendation.css">
+</head>
+<body>
+
+<h1>Workout Recommendations</h1>
+<div id="top">
+  <a href="../../SettingsAndLogsProto/workoutHistory.html" class="btn" role="button" type="button" id="Bbtn">Back</a>
+  <div class="color" id="firstC"></div>
+  <div class="status">Completed</div>
+  <div class="color" id="secondC"></div>
+  <div class="status">Need to be completed</div>
+  <div class="color" id="thirdC"></div>
+  <div class="status">Uncompleted</div>
+</div>
+<div class="cols">
+    <div class="col">
+      <div class="col_backup">Goal 1: Run 15 km in total
+      </br>
+      <p class="date" >Complete by: 03/05/2021</p>
+      </br>
+      <a href="./recommendation.html" class="Dbtn" role="button" type="button">Delete</a>
+      </div>
+      <div class="re">
+        Recommendation: Run 6 km
+        </br>
+        <button type="button" id="modalBtn1" class="btn">Use</button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="col_backup">Goal 2: Burn 500 calories in total
+      </br>
+      <p class="date">Complete by: 15/05/2021</p>
+      </br>
+      <a href="./recommendation.html" class="Dbtn" role="button" type="button">Delete</a>
+      </div>
+      <div class="re">
+        Recommendation: Cycle 10 km
+        </br>
+        <button type="button" id="modalBtn2" class="btn">Use</button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="col_backup">Goal 3: Burn 300 calories in total
+      </br>
+      <p class="date">Complete by: 16/06/2021</p>
+      </br>
+      <a href="./recommendation.html" class="Dbtn" role="button" type="button">Delete</a>
+      </div>
+      <div class="re">
+        Recommendation: Run 10km
+        </br>
+        <button type="button" id="modalBtn3" class="btn">Use</button>
+      </div>
+    </div>
+  </div>
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalText">The recommendation is added to upcoming workouts list successfully!</p>
+    </div>
+    
+  </div>
+  <script type="text/javascript" src="./modal.js"></script>
+</body>
+</html>
