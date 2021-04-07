@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Workout Data</title>
+
+    <meta name="HalfStack" content="Data from workout">
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+
+
+	<div class="col-md-6">
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<br>
+				<a class="nav-link btn btn-primary" href="../../DashboardAndEmailPasswordUpdate/Dashboard/src/dashboard.html">Dashboard</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>
+				Workout Data
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h3>
+				Date 08/03/21
+			</h3>
+			<h3>
+				Start: 10:30 am
+			</h3>
+			<h3>
+				End: 12:00 pm
+			</h3>
+			<h3>
+				Distance: 5 km
+			</h3>
+			<h3>
+				Incline gained: 50 m
+			</h3>
+		</div>
+		<div class="col-md-6">
+			<h3>
+				Map:
+			</h3>
+
+			<div class="img1-container">
+				<img alt="Smiling face" src="Map.png" />
+			</div>
+			
+		</div>
+		<a href="../Individual_Map/map.html" class="btn btn-primary" role="button">Map</a>
+		<a href="../../SettingsAndLogsProto/workoutHistory.html" class="btn btn-primary" role="button">Back</a>
+		<div>
+			<button type="button" id="modalBtn">Reuse</button>
+		</div>
+	</div>
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <p id="modalText">This workout is added to upcoming workouts list successfully!</p>
+		</div>
+	  
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+	<script type="text/javascript" src="./run.js"></script>
+  </body>
+</html>
