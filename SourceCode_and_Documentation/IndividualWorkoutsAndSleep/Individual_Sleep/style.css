@@ -9,6 +9,7 @@ body {
 }
 
 h1 {
+    text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: rgba(128, 128, 128, 0.192);
