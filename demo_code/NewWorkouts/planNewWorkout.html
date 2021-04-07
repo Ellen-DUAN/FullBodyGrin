@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 4, from LayoutIt!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center">
+				New Workout
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			<form role="form">
+				<div class="form-group">
+					 
+					<label for="date">
+						Completion Date
+					</label>
+					<input type="date" class="form-control" id="date" />
+				</div>
+				<div class="form-group">
+					 
+					<label for="activity">
+						Workout Type
+					</label>
+					<select name="cars" id="date">
+                        <option value="volvo">Running</option>
+                        <option value="saab">Cycling</option>
+                    </select>
+				</div>
+                <div class="form-group">
+                  
+                    <label for="calories">
+                          Distance
+                      </label>
+                      <input  class="form-control" id="calories" disabled/>
+                  </div>
+				<div class="form-group">
+                  
+                  <label for="calories">
+						Calories Burned
+					</label>
+					<input  class="form-control" id="calories" disabled/>
+				</div>
+				<div class="form-group">
+                  
+                  <label for="pace">
+						Time Taken in minutes
+					</label>
+					<input  class="form-control" id="pace" disabled/>
+				</div>
+				<div class="form-group">
+                  
+                <h8 class="text-center">
+                Your last workout on March 12th 2021, you burned 324 calories at a pace of 15 calories/min
+                <h8>
+				</br>
+				</br>
+				<button type="button" id="modalBtn" class="btn">Submit</button>  
+			</form>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+    
+</div>
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalText">A new goal is created successfully!</p>
+    </div>
+    
+</div>
+    <script type="text/javascript" src="./modal.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
