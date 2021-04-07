@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Workout Log</title>
+
+    <meta name="description" content="Workout Log">
+    <meta name="author" content="HalfStack">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<br>
+					<a class="nav-link btn btn-primary" href="../DashboardAndEmailPasswordUpdate/Dashboard/src/dashboard.html">Dashboard</a>
+				</li>
+			</ul>
+			<div class="page-header">
+				<h1>
+					<br>
+					Your Workout Log
+					<br>
+				</h1>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<br>
+			 <a href="../GoalAndRecommendation/Recommendation/recommendation.html" class="btn btn-info active btn-block" type="button">View Recommendations</a>
+			 <a href="../GoalAndRecommendation/Goal/goal.html" class="btn btn-info active btn-block" type="button">Create Goal</a>
+		</div>
+		<div class="search_bar">
+			Calories:
+			<select name="cars" id="date">
+				<option value="volvo">Low - High</option>
+				<option value="saab">High - Low</option>
+			</select>
+		</div>
+		<div class="search_bar">
+			Start Date:
+			<input type="date" name="date" id="start_date" />
+		</div>
+		<div class="search_bar">
+			End Date:
+			<input type="date" name="date" id="end_date" />
+		</div>
+		<div class="search_bar">
+			Workout Type:
+			<select name="cars" id="date">
+				<option value="volvo">Running</option>
+				<option value="saab">Cycling</option>
+			</select>
+		</div>
+		<div class="search_bar">
+			<button type="button" id="searchBtn">Search</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped">
+				<thead>
+					<tr class="table-active">
+						<th>
+							Date
+						</th>
+						<th>
+							Workout Type
+						</th>
+						<th>
+							Distance
+						</th>
+						<th>
+							Time Taken
+						</th>
+						<th>
+							Calories
+						</th>
+						<th>
+							 
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table">
+						<td>
+							7/03/21
+						</td>
+						<td>
+							Cycling
+						</td>
+						<td>
+							12km
+						</td>
+						<td>
+							1h 10m
+						</td>
+						<td>
+							865
+						</td>
+						<td>
+							<a href="../IndividualWorkoutsAndSleep/Individual_Run/run.html" class="btn btn-secondary" type="button">View</a>
+						</td>
+					</tr>
+					<tr class="table-active">
+						<td>
+							6/03/21
+						</td>
+						<td>
+							Running
+						</td>
+						<td>
+							8km
+						</td>
+						<td>
+							0h 40m
+						</td>
+						<td>
+							576
+						</td>
+						<td>
+							<a href="../IndividualWorkoutsAndSleep/Individual_Run/run.html" class="btn btn-secondary" type="button">View</a>
+						</td>
+					</tr>
+					<tr class="table">
+						<td>
+							4/03/21
+						</td>
+						<td>
+							Running
+						</td>
+						<td>
+							3km
+						</td>
+						<td>
+							0h 15m
+						</td>
+						<td>
+							216
+						</td>
+						<td>
+							<a href="../IndividualWorkoutsAndSleep/Individual_Run/run.html" class="btn btn-secondary" type="button">View</a>
+						</td>
+					</tr>
+					<tr class="table-active">
+						<td>
+							1/03/21
+						</td>
+						<td>
+							Cycling
+						</td>
+						<td>
+							7km
+						</td>
+						<td>
+							0h 30m
+						</td>
+						<td>
+							504
+						</td>
+						<td>
+							<a href="../IndividualWorkoutsAndSleep/Individual_Run/run.html" class="btn btn-secondary" type="button">View</a>
+						</td>
+					</tr>
+					<tr class="table">
+						<td>
+							28/02/21
+						</td>
+						<td>
+							Cycling
+						</td>
+						<td>
+							8km
+						</td>
+						<td>
+							0h 40m
+						</td>
+						<td>
+							576
+						</td>
+						<td>
+							<a href="../IndividualWorkoutsAndSleep/Individual_Run/run.html" class="btn btn-secondary" type="button">View</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<nav>
+				<ul class="pagination">
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">Previous</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">1</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">2</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">3</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">4</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">5</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="./workoutHistory.html">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
