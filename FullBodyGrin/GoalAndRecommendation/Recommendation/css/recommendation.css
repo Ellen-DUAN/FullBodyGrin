@@ -16,12 +16,12 @@ p {
 .Dbtn {
     margin-top:50px;
     padding:10px 15px 10px 15px;
-    background-color:#3180de;
-    border:solid;
+    border:1px solid transparent;
     border-radius:10px;
     font-size:18px;
-    border-color:#3180de;
-    color: white
+    color: #292b2c;
+    background-color: #fff;
+    border-color: #ccc;
 }
 
 #Bbtn {
