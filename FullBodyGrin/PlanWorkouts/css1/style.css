@@ -109,13 +109,3 @@ h3 {
     font-size:18px;
     border-style: none;
 }
-
-.btn {
-    margin-right: 50px;
-    padding:10px 15px 10px 15px;
-    background-color: #3180de;
-    color:white;
-    border-radius:10px;
-    border:none;
-    font-size:18px
-}

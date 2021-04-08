@@ -31,7 +31,7 @@ saveb.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span1.onclick = function() {
   modal1.style.display = "none";
-  window.location.href = "./data.html";
+  window.location.href = "../SettingsAndLogsProto/workoutHistory.html";
 }
 
 cancelb.onclick = function() {
