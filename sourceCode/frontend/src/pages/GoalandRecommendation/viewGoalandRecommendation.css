@@ -1,0 +1,64 @@
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.card_item {
+    margin: 10% 50%;
+}
+
+.inner_card {
+    margin: auto;
+}
+
+#completedColor {
+    height: 20px;
+    width: 60px;
+    background-color: #ffb545;
+    margin-right: 10%;
+}
+
+#uncompletedColor {
+    height: 20px;
+    width: 60px;
+    background-color: #bdb6ac;
+    margin-right: 10%;
+}
+
+#inProgressColor {
+    height: 20px;
+    width: 60px;
+    background-color: #9fcf8c;
+    margin-right: 10%;
+}
+
+.status {
+    display: flex;
+}
+
+.completed {
+    background-color: #ffb545;
+}
+
+.uncompleted {
+    background-color: #bdb6ac;
+}
+
+.inProgess {
+    background-color: #9fcf8c;
+}
+
+#backBtn {
+    margin-left: 16%;
+    margin-top: 6%;
+    margin-bottom: 0;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 30px;
+    color: white;
+}

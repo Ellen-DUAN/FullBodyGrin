@@ -1,0 +1,35 @@
+#logo {
+    background-image: url("../../landing.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 820px;
+    width: 100%;
+    margin: auto;
+}
+
+#btn1 {
+    background-color: #277068;
+    border-style: none;
+    border-radius: 5px;
+    height: 55px;
+    width: 140px;
+    font-size: 30px;
+    position: absolute;
+	top: 70%;
+	left: 30%;
+    color:white;
+}
+
+#btn2 {
+    background-color: #277068;
+    border-style: none;
+    border-radius: 5px;
+    height: 55px;
+    width: 140px;
+    font-size: 30px;
+    position: absolute;
+	top: 70%;
+	left: 60%;
+    color:white;
+}

@@ -1,0 +1,22 @@
+h1 {
+    color: black;
+    margin-bottom: 10%;
+}
+
+#okImg {
+    margin-left: 5%;
+}
+
+#happyImg {
+    margin-left: 5%;
+}
+
+#unhappyImg {
+    margin-left: 5%;
+}
+
+.form-check {
+    width: 30px;
+    margin-top: 2%;
+    display: flex;
+}
