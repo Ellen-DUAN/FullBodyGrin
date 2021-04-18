@@ -220,7 +220,7 @@ class signUp(Resource):
             'password': password
         })
         
-        with open('database/users.json', 'w') as fout:
+        with open('database/users.json') as fout:
             json.dump(users, fout)
 
         users_new_workouts[email] = []
