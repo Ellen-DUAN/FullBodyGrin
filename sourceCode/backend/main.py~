@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 import datetime
 import json
+import os
 
 app = Flask(__name__)
 api = Api(app)
@@ -26,7 +27,14 @@ parser = reqparse.RequestParser()
 #                   'password2': 
 #               }
 #           ]
-users = []
+
+if os.stat('database/users.json').st_size == 0:
+    users = []
+else:
+    with open('database/users.json') as read_file:
+        users = json.load(read_file)
+
+#users = []
 
 
 #   users_new_workouts = {
@@ -220,7 +228,7 @@ class signUp(Resource):
             'password': password
         })
         
-        with open('database/users.json') as fout:
+        with open('database/users.json', 'w') as write_file:
             json.dump(users, fout)
 
         users_new_workouts[email] = []
@@ -286,6 +294,7 @@ class logIn(Resource):
                 loggedin = True
                 global loggedin_user 
                 loggedin_user = {'email': email}
+                #print('---------->>>>>', loggedin_user)
                 return {'login': True}
 
         if(not loggedin):
