@@ -9,6 +9,7 @@ api = Api(app)
 
 parser = reqparse.RequestParser()
 
+# Load users
 if not os.path.isfile('database/users.json'):
     open('database/users.json', 'x')
     users = []
@@ -17,7 +18,8 @@ elif os.stat('database/users.json').st_size == 0:
 else:
     with open('database/users.json') as read_file:
         users = json.load(read_file)
-        
+
+# Load users_new_workouts   
 if not os.path.isfile('database/users_new_workouts.json'):
     open('database/users_new_workouts.json', 'x')
     users_new_workouts = {}
@@ -27,6 +29,7 @@ else:
     with open('database/users_new_workouts.json') as read_file:
         users_new_workouts = json.load(read_file)
 
+# Load users_old_workouts
 if not os.path.isfile('database/users_old_workouts.json'):
     open('database/users_old_workouts.json', 'x')
     users_old_workouts = {}  
@@ -35,7 +38,8 @@ elif os.stat('database/users_old_workouts.json').st_size == 0:
 else:
     with open('database/users_old_workouts.json') as read_file:
         users_old_workouts = json.load(read_file)
-                            
+
+# Load users_goals                           
 if not os.path.isfile('database/users_goals.json'):
     open('database/users_goals.json', 'x')
     users_goals = {}  
@@ -45,6 +49,7 @@ else:
     with open('database/users_goals.json') as read_file:
         users_goals = json.load(read_file)
 
+# Load users_recommendations
 if not os.path.isfile('database/users_recommendations.json'):
     open('database/users_recommendations.json', 'x')
     users_recommendations = {}  
@@ -54,6 +59,7 @@ else:
     with open('database/users_recommendations.json') as read_file:
         users_recommendations = json.load(read_file)
 
+# Load users_total_stats
 if not os.path.isfile('database/users_total_stats.json'):
     open('database/users_total_stats.json', 'x')
     users_total_stats = {}  
@@ -63,6 +69,7 @@ else:
     with open('database/users_total_stats.json') as read_file:
         users_total_stats = json.load(read_file)
 
+# Load users_personal_stats
 if not os.path.isfile('database/users_personal_stats.json'):
     open('database/users_personal_stats.json', 'x')
     users_personal_stats = {}  
@@ -72,6 +79,7 @@ else:
     with open('database/users_personal_stats.json') as read_file:
         users_personal_stats = json.load(read_file)
 
+# Load users_sleep
 if not os.path.isfile('database/users_sleep.json'):
     open('database/users_sleep.json', 'x')
     users_sleep = {}  
@@ -83,17 +91,16 @@ else:
 
 loggedin_user = None
 
+# loggIn class
 class loggedIn(Resource):
-
     def get(self):
-        #print(loggedin_user)
         if(loggedin_user):
             return {'loggedin': True}
         else:
             return {'loggedin': False}
 
+# validateSignUp class
 class validateSignUp(Resource):
-
     def post(self):
         parser.add_argument('username', type=str)
         parser.add_argument('email', type=str)
@@ -109,13 +116,12 @@ class validateSignUp(Resource):
 
         #print("Username exists alr? ", username_error)
         #print("Email exists alr?", email_error)
-
         if(error):
             return {'valid': False}
         else:
             return {'valid': True}
 
-
+# signUp class
 class signUp(Resource):
     def post(self):
         parser.add_argument('username', type=str)
@@ -134,13 +140,6 @@ class signUp(Resource):
         weight = args['weight']
         password = args['password']
 
-        print('Username: ', username)
-        print('Email: ', email)
-        print('Date of Birth: ', date_of_birth)
-        print('Height: ', height)
-        print('Weight: ', weight)
-        print('password', password)
-
         # Check date of birth
 
         size = len(users)
@@ -151,16 +150,13 @@ class signUp(Resource):
             'height': height,
             'weight': weight,
             'password': password
-        })
-        
+        }) 
         with open('database/users.json', 'w') as write_file:
             json.dump(users, write_file)
 
-        print('*******************')
         users_new_workouts[email] = []
-        print('--->', users_new_workouts)
-        with open('database/users_new_workouts.json', 'w') as write_file2:
-            json.dump(users_new_workouts, write_file2)
+        with open('database/users_new_workouts.json', 'w') as write_file:
+            json.dump(users_new_workouts, write_file)
             
         users_old_workouts[email] = []
         with open('database/users_old_workouts.json', 'w') as write_file:
@@ -168,7 +164,7 @@ class signUp(Resource):
         
         users_goals[email] = []
         with open('database/users_goals.json', 'w') as write_file:
-            json.dump(users_goals, write_file)           
+            json.dump(users_goals, write_file)         
         
         users_total_stats[email] = {}
         users_total_stats[email]['total_distance'] = 10
@@ -205,8 +201,8 @@ class signUp(Resource):
 
         return {'saved': True}
 
+# logIn class
 class logIn(Resource):
-
     def post(self):
         parser.add_argument('email', type=str)
         parser.add_argument('password', type=str)
@@ -215,35 +211,22 @@ class logIn(Resource):
         email = args['email']
         password = args['password']
 
-        #print(type(email))
-        #print(type(password))
-        #print(email)
-        #print(password)
-
-        #print(users)
         if(not users):
             return {'login': False}
         
         loggedin = False
         for user in users:
-            #print(user)
-            #print(type(user['email']))
-            #print(type(user['password']))
-            #print(user['email'])
-            #print(user['password'])
             if(user['email'] == email and user['password'] == password):
                 loggedin = True
                 global loggedin_user 
                 loggedin_user = {'email': email}
-                #print('---------->>>>>', loggedin_user)
                 return {'login': True}
 
         if(not loggedin):
             return {'login': False}
 
-
+# planNewWorkout class
 class planNewWorkout(Resource):
-
     def post(self):
 
         email = loggedin_user['email']
@@ -277,13 +260,14 @@ class planNewWorkout(Resource):
         workout['time_taken'] = time_taken
 
         users_new_workouts[email].append(workout)
-        #print(users_new_workouts[email])
+        with open('database/users_new_workouts.json', 'w') as write_file:
+            json.dump(users_new_workouts, write_file)
         
         #if(completion_date and workout_type and distance != "0" and calories_burnt != "0" and time_taken != "0")
         return {'saved': True}
 
+# getNewWorkouts class
 class getNewWorkouts(Resource):
-
     def get(self):
         email = loggedin_user['email']
         workouts = []
@@ -297,27 +281,22 @@ class getNewWorkouts(Resource):
 
         return {'list': workouts}
 
+# getWorkoutDetails class
 class getWorkoutDetails(Resource):
-
     def get(self, workout_id):
         email = loggedin_user['email']
         workouts_array = users_new_workouts[email]
         workout_json = {}
-        #print(workout_id)
         print(workouts_array)
         for workout in workouts_array:
-            
             if(workout['id'] == int(workout_id)):
-                #print('hahahahah')
                 workout_json = workout
                 break
 
-        #print(workout_json)
-
         return {'workout': workout_json}
 
+# updateNewWorkout class
 class updateNewWorkout(Resource):
-
     def post(self):
         email = loggedin_user['email']
         parser.add_argument('id')
@@ -362,13 +341,15 @@ class updateNewWorkout(Resource):
                 print('**********')
                 users_new_workouts[email].remove(workout)
                 users_new_workouts[email].append(updated_workout)
+                with open('database/users_new_workouts.json', 'w') as write_file:
+                    json.dump(users_new_workouts, write_file)
                 break
         
         #if(completion_date and workout_type and distance != "0" and calories_burnt != "0" and time_taken != "0")
         return {'updated': True}
 
+# deleteWorkout class
 class deleteWorkout(Resource):
-
     def post(self):
         email = loggedin_user['email']
         parser.add_argument('id')
@@ -380,12 +361,14 @@ class deleteWorkout(Resource):
         for workout in users_new_workouts[email]:
             if(workout['id'] == int(workout_id)):
                 users_new_workouts[email].remove(workout)
+                with open('database/users_new_workouts.json', 'w') as write_file:
+                    json.dump(users_new_workouts, write_file)
                 break
 
         return {'deleted': True}
 
+# logWorkout class
 class logWorkout(Resource):
-
     def post(self):
         email = loggedin_user['email']
         parser.add_argument('id')
@@ -422,21 +405,25 @@ class logWorkout(Resource):
         workout['pace'] = pace
 
         users_old_workouts[email].append(workout)
+        with open('database/users_old_workouts.json', 'w') as write_file:
+            json.dump(users_old_workouts, write_file)
 
         users_total_stats[email]['total_distance'] = users_total_stats[email]['total_distance'] + float(distance)
         users_total_stats[email]['total_calories'] = users_total_stats[email]['total_calories'] + float(calories_burnt)
         users_total_stats[email]['total_time'] = users_total_stats[email]['total_time'] + float(time_spent)
+        with open('database/users_total_stats.json', 'w') as write_file:
+            json.dump(users_total_stats, write_file)
 
         return {'saved': True}
 
+# getOldWorkouts class
 class getOldWorkouts(Resource):
-
     def get(self):
         email = loggedin_user['email']
         return {'list': users_old_workouts[email]}
 
+# getOldWorkoutDetails class
 class getOldWorkoutDetails(Resource):
-
     def get(self, workout_id):
         email = loggedin_user['email']
         workouts_array = users_old_workouts[email]
@@ -450,9 +437,8 @@ class getOldWorkoutDetails(Resource):
 
         return {'workout': workout_json}
 
-
+# reUserWorkout class
 class reUserWorkout(Resource):
-
     def post(self):
         email = loggedin_user['email']
         parser.add_argument('id')
@@ -478,9 +464,8 @@ class reUserWorkout(Resource):
         
         return {'reuse': True}
 
-
+# createNewGoal class
 class createNewGoal(Resource):
-
     def post(self):
 
         email = loggedin_user['email']
@@ -513,12 +498,14 @@ class createNewGoal(Resource):
         goal['status'] = 'inProgess'
 
         users_goals[email].append(goal)
+        with open('database/users_goals.json', 'w') as write_file:
+	        json.dump(users_goals, write_file)
 
         return {'saved': True}        
 
 
+# getGoalRecommendation class
 class getGoalRecommendation(Resource):
-
     def get(self):
 
         email = loggedin_user['email']
@@ -549,9 +536,9 @@ class getGoalRecommendation(Resource):
         return {'goals': users_goals[email],
                 'recommendations': users_recommendations[email]
                 }
-        
+                
+# deleteGoal class 
 class deleteGoal(Resource):
-
     def post(self):
         email = loggedin_user['email']
 
@@ -564,12 +551,14 @@ class deleteGoal(Resource):
         for goal in users_goals[email]:
             if(goal['id'] == int(goal_id)):
                 users_goals[email].remove(goal)
+                with open('database/users_goals.json', 'w') as write_file:
+	                json.dump(users_goals, write_file)
                 break
 
         return {'deleted': True}
 
+# useRecommendation class
 class useRecommendation(Resource):
-
     def post(self):
 
         email = loggedin_user['email']
@@ -606,16 +595,20 @@ class useRecommendation(Resource):
         workout['time_taken'] = time_taken
 
         users_new_workouts[email].append(workout)
+        with open('database/users_new_workouts.json', 'w') as write_file:
+	        json.dump(users_new_workouts, write_file)
 
         for recommendation in users_recommendations[email]:
             if(recommendation['id'] == int(recommendation_id)):
                 users_recommendations[email].remove(recommendation)
+                with open('database/users_recommendations.json', 'w') as write_file:
+	                json.dump(users_recommendations, write_file)
                 break
         
         return {'saved': True}
-            
+          
+# updateEmailPassword class
 class updateEmailPassword(Resource):
-
     def post(self):
         
         parser.add_argument('old_email')
@@ -641,41 +634,48 @@ class updateEmailPassword(Resource):
                     users_new_workouts[new_email] = new_workouts
                     # Remove old email from users_new_workouts
                     del users_new_workouts[old_email]
-
+                    with open('database/users_new_workouts.json', 'w') as write_file:
+	                    json.dump(users_new_workouts, write_file)
 
                     # users_old_workouts
                     old_workouts = users_old_workouts[old_email]
                     users_old_workouts[new_email] = old_workouts
                     del users_old_workouts[old_email]
+                    with open('database/users_old_workouts.json', 'w') as write_file:
+	                    json.dump(users_old_workouts, write_file)
 
                     # users_goals
                     goals = users_goals[old_email]
                     users_goals[new_email] = goals
                     del users_goals[old_email]
-
+                    with open('database/users_goals.json', 'w') as write_file:
+	                    json.dump(users_goals, write_file)
 
                     # users_recommendations
                     recommendations = users_recommendations[old_email]
                     users_recommendations[new_email] = recommendations
                     del users_recommendations[old_email]
-
+                    with open('database/users_recommendations.json', 'w') as write_file:
+	                    json.dump(users_recommendations, write_file)
 
                     # users_total_stats
                     total_stats = users_total_stats[old_email]
                     users_total_stats[new_email] = total_stats
                     del users_total_stats[old_email]
-
+                    with open('database/users_total_stats.json', 'w') as write_file:
+	                    json.dump(users_total_stats, write_file)
 
                     # users_personal_stats
                     personal_stats = users_personal_stats[old_email]
                     users_personal_stats[new_email] = personal_stats
                     del users_personal_stats[old_email]
+                    with open('database/users_personal_stats.json', 'w') as write_file:
+	                    json.dump(users_personal_stats, write_file)
 
         return {'updated': True}
 
-
+# updateHeightWeight class
 class updateHeightWeight(Resource):
-
     def post(self):
         email = loggedin_user['email']
         parser.add_argument('new_height')
@@ -688,11 +688,13 @@ class updateHeightWeight(Resource):
 
         users_personal_stats[email]['height'] = new_height
         users_personal_stats[email]['weight'] = new_weight
+        with open('database/users_personal_stats.json', 'w') as write_file:
+	        json.dump(users_personal_stats, write_file)
 
         return {'updated': True}
 
+# getUserInfo class
 class getUserInfo(Resource):
-
     def get(self):
         email = loggedin_user['email']
 
@@ -705,8 +707,8 @@ class getUserInfo(Resource):
             'old_weight': weight
         }
 
+# logSleep class
 class logSleep(Resource):
-
     def post(self):
 
         email = loggedin_user['email']
@@ -732,20 +734,21 @@ class logSleep(Resource):
         sleep['feeling'] = feeling
 
         users_sleep[email].append(sleep)
+        with open('database/users_sleep.json', 'w') as write_file:
+	        json.dump(users_sleep, write_file)
 
         return {'saved': True}
 
+# getSleep class
 class getSleep(Resource):
-
     def get(self):
 
         email = loggedin_user['email']
 
         return {'list': users_sleep[email]}
 
-
+# getRecommendation class
 class getRecommendation(Resource):
-
     def get(self, recommendation_id):
 
         email = loggedin_user['email']
@@ -758,7 +761,7 @@ class getRecommendation(Resource):
 
         return {'recommendation': recommendation_json}
         
-
+# completeWorkout class
 class completeWorkout(Resource):
 
     def post(self, workout_id):
