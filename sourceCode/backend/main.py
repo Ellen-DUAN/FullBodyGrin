@@ -28,15 +28,15 @@ parser = reqparse.RequestParser()
 #               }
 #           ]
 
-if os.stat('database/users.json').st_size == 0:
+if not os.path.isfile('database/users.json'):
+    open('database/users.json', 'x')
+    users = []
+elif os.stat('database/users.json').st_size == 0:
     users = []
 else:
     with open('database/users.json') as read_file:
         users = json.load(read_file)
-
-#users = []
-
-
+        
 #   users_new_workouts = {
 #                   'user_email1': [
 #                                       {
@@ -63,7 +63,11 @@ else:
 #                                   ......
 #                                  ]
 #                   }
-users_new_workouts = {}
+if os.stat('database/users_new_workouts.json').st_size == 0:
+    users_new_workouts = {}
+else:
+    with open('database/users_new_workouts.json') as read_file:
+        users_new_workouts = json.load(read_file)
 
 
 
@@ -95,7 +99,14 @@ users_new_workouts = {}
 #                                   ......
 #                                  ]
 #               }
-users_old_workouts = {}
+if not os.path.isfile('database/users_old_workouts.json'):
+    open('database/users_old_workouts.json', 'x')
+    users_old_workouts = {}  
+elif os.stat('database/users_old_workouts.json').st_size == 0:
+    users_old_workouts = {}
+else:
+    with open('database/users_old_workouts.json') as read_file:
+        users_old_workouts = json.load(read_file)
 
 
 
