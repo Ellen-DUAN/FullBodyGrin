@@ -219,7 +219,7 @@ class logIn(Resource):
             if(user['email'] == email and user['password'] == password):
                 loggedin = True
                 global loggedin_user 
-                loggedin_user = {'email': email}
+                loggedin_user = {'email': email, 'weight': user['weight'] }
                 return {'login': True}
 
         if(not loggedin):
@@ -238,7 +238,7 @@ class planNewWorkout(Resource):
         parser.add_argument('time_taken')
 
         args = parser.parse_args()
-    
+        currentUserWeight = loggedin_user['weight']
         completion_date = args['completion_date']
         completion_date = completion_date[:10]
         date = datetime.datetime.strptime(completion_date, "%Y-%m-%d")
@@ -249,14 +249,18 @@ class planNewWorkout(Resource):
         distance = args['distance']
         calories_burnt = args['calories_burnt']
         time_taken = args['time_taken']
-
+        if (workout_type == 'Cycling'):
+            METS = 10
+        else:
+            METS = 8
+        time_taken_hours = (int(time_taken) / 60)
         workout = {}
         workout['id'] = len(users_new_workouts[email])
         workout['completion_date'] = true_date
         workout['workout_type'] = workout_type
         workout['mapjson'] = mapjson
         workout['distance'] = distance
-        workout['calories_burnt'] = calories_burnt
+        workout['calories_burnt'] = (METS*currentUserWeight)*time_taken_hours
         workout['time_taken'] = time_taken
 
         users_new_workouts[email].append(workout)
@@ -381,7 +385,6 @@ class logWorkout(Resource):
         parser.add_argument('pace')
 
         args = parser.parse_args()
-
         date = args['date']
         date = date[:10]
         date = datetime.datetime.strptime(date, "%Y-%m-%d")
@@ -393,17 +396,22 @@ class logWorkout(Resource):
         calories_burnt = args['calories_burnt']
         time_spent = args['time_spent']
         pace = args['pace']
-
+        currentUserWeight = loggedin_user['weight']
+        if (workout_type == 'Cycling'):
+            METS = 10
+        else:
+            METS = 8
+        time_taken_hours = (int(time_spent) / 60)
         workout = {}
         workout['id'] = len(users_old_workouts[email])
         workout['date'] = true_date
         workout['workout_type'] = workout_type
         workout['mapjson'] = mapjson
         workout['distance'] = distance
-        workout['calories_burnt'] = calories_burnt
+        workout['calories_burnt'] = (METS*currentUserWeight)*time_taken_hours
         workout['time_spent'] = time_spent
         workout['pace'] = pace
-
+    
         users_old_workouts[email].append(workout)
         with open('database/users_old_workouts.json', 'w') as write_file:
             json.dump(users_old_workouts, write_file)
