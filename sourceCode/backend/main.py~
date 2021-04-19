@@ -9,93 +9,24 @@ api = Api(app)
 
 parser = reqparse.RequestParser()
 
-#   users = [
-#               {
-#                    username1':
-#                   'email1':
-#                   'date_of_birth1':
-#                   'height1':
-#                   'weight1': 
-#                   'password1': 
-#               },
-#               {
-#                    username2':
-#                   'email2':
-#                   'date_of_birth2':
-#                   'height2':
-#                   'weight2': 
-#                   'password2': 
-#               }
-#           ]
-
-if os.stat('database/users.json').st_size == 0:
+if not os.path.isfile('database/users.json'):
+    open('database/users.json', 'x')
+    users = []
+elif os.stat('database/users.json').st_size == 0:
     users = []
 else:
     with open('database/users.json') as read_file:
         users = json.load(read_file)
         
-#   users_new_workouts = {
-#                   'user_email1': [
-#                                       {
-#                                           'id'
-#                                           'completion_date':
-#                                           'workout_type':
-#                                           'mapjson':
-#                                           'distance':
-#                                           'calories_burnt':
-#                                           'time_taken':
-#                                       },
-#
-#                                       {
-#                                           'id'
-#                                           'completion_date':
-#                                           'workout_type':
-#                                           'mapjson':
-#                                           'distance':
-#                                           'calories_burnt':
-#                                           'time_taken':
-#                                        }
-#                                   ],
-#                   'user_email2': [
-#                                   ......
-#                                  ]
-#                   }
-if os.stat('database/users_new_workouts.json').st_size == 0:
+if not os.path.isfile('database/users_new_workouts.json'):
+    open('database/users_new_workouts.json', 'x')
+    users_new_workouts = {}
+elif os.stat('database/users_new_workouts.json').st_size == 0:
     users_new_workouts = {}
 else:
     with open('database/users_new_workouts.json') as read_file:
         users_new_workouts = json.load(read_file)
 
-
-
-#   users_old_workouts = {
-#                   'user_email1': [
-#                               {
-#                                   'id'
-#                                   'date':
-#                                   'workout_type':
-#                                   'mapjson':
-#                                   'distance':
-#                                   'calories_burnt':
-#                                   'time_spent':
-#                                   'pace':
-#                               },
-#
-#                               {
-#                                   'id'
-#                                   'date':
-#                                   'workout_type':
-#                                   'mapjson':
-#                                   'distance':
-#                                   'calories_burnt':
-#                                   'time_spent':
-#                                   'pace':
-#                               }
-#                           ],
-#                   'user_email2': [
-#                                   ......
-#                                  ]
-#               }
 if not os.path.isfile('database/users_old_workouts.json'):
     open('database/users_old_workouts.json', 'x')
     users_old_workouts = {}  
@@ -104,65 +35,52 @@ elif os.stat('database/users_old_workouts.json').st_size == 0:
 else:
     with open('database/users_old_workouts.json') as read_file:
         users_old_workouts = json.load(read_file)
+                            
+if not os.path.isfile('database/users_goals.json'):
+    open('database/users_goals.json', 'x')
+    users_goals = {}  
+elif os.stat('database/users_goals.json').st_size == 0:
+    users_goals = {}
+else:
+    with open('database/users_goals.json') as read_file:
+        users_goals = json.load(read_file)
 
+if not os.path.isfile('database/users_recommendations.json'):
+    open('database/users_recommendations.json', 'x')
+    users_recommendations = {}  
+elif os.stat('database/users_recommendations.json').st_size == 0:
+    users_recommendations = {}
+else:
+    with open('database/users_recommendations.json') as read_file:
+        users_recommendations = json.load(read_file)
 
+if not os.path.isfile('database/users_total_stats.json'):
+    open('database/users_total_stats.json', 'x')
+    users_total_stats = {}  
+elif os.stat('database/users_total_stats.json').st_size == 0:
+    users_total_stats = {}
+else:
+    with open('database/users_total_stats.json') as read_file:
+        users_total_stats = json.load(read_file)
 
-#   users_goals = {
-#               'user_email1' : [
-#                                   {
-#                                       'id'
-#                                       'completion_date'
-#                                       'workout_type'
-#                                       'total_distance'
-#                                       'total_calories'
-#                                       'total_time'
-#                                       'status'
-#                                   }
-#                               ]
-#                }                              
-users_goals = {}
+if not os.path.isfile('database/users_personal_stats.json'):
+    open('database/users_personal_stats.json', 'x')
+    users_personal_stats = {}  
+elif os.stat('database/users_personal_stats.json').st_size == 0:
+    users_personal_stats = {}
+else:
+    with open('database/users_personal_stats.json') as read_file:
+        users_personal_stats = json.load(read_file)
 
-#   users_recommendations = {
-#               'user_email1' : [
-#                                   {
-#                                       'id'
-#                                       'workout_type'
-#                                       'distance'
-#                                       'time'
-#                                   }
-#                               ]
-# 
-users_recommendations = {}
-
-# structure of users_total_stats
-# users_total_stats = {
-#                   'user1_email': {
-#                       'total_time':         
-#                       'total_calories':
-#                       'total_distance':
-#                   }
-#               }
-users_total_stats = {}
-
-# users_personal_stats = {
-#                   'user1_email': {  
-#                       'height': 
-#                       'weight':
-#                   }
-#               }
-users_personal_stats = {}
-
-
-#   users_sleep = {
-#           'user1_email': [
-#               0: {
-#                   date:
-#                   time:
-#                   feeling:
-#               }
-#           ]
-#   }
 users_sleep = {}
+if not os.path.isfile('database/users_old_workouts.json'):
+    open('database/users_old_workouts.json', 'x')
+    users_old_workouts = {}  
+elif os.stat('database/users_old_workouts.json').st_size == 0:
+    users_old_workouts = {}
+else:
+    with open('database/users_old_workouts.json') as read_file:
+        users_old_workouts = json.load(read_file)
 
 loggedin_user = None
 
