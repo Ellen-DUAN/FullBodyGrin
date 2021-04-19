@@ -157,35 +157,49 @@ class signUp(Resource):
             json.dump(users, write_file)
 
         users_new_workouts[email] = []
+        with open('database/users_new_workouts.json', 'w') as write_file2:
+            json.dump(users_new_workouts, write_file2)
+            
         users_old_workouts[email] = []
+        with open('database/users_old_workouts.json', 'w') as write_file:
+            json.dump(users_old_workouts, write_file)
+        
         users_goals[email] = []
-        users_recommendations[email] = []
-        users_goals[email] = []
+        with open('database/users_goals.json', 'w') as write_file:
+            json.dump(users_goals, write_file)           
+        
         users_total_stats[email] = {}
-        users_personal_stats[email] = {}
-        users_sleep[email] = []
-
-        users_personal_stats[email]['height'] = height
-        users_personal_stats[email]['weight'] = weight
-
         users_total_stats[email]['total_distance'] = 10
         users_total_stats[email]['total_calories'] = 0
         users_total_stats[email]['total_time'] = 0
+        with open('database/users_total_stats.json', 'w') as write_file:
+            json.dump(users_total_stats, write_file)
+        
+        users_personal_stats[email] = {}
+        users_personal_stats[email]['height'] = height
+        users_personal_stats[email]['weight'] = weight
+        with open('database/users_personal_stats.json', 'w') as write_file:
+            json.dump(users_personal_stats, write_file)                
 
-        re1 = {}
-        re1['id'] = 0
-        re1['workout_type'] = 'Running'
-        re1['distance'] = 10
-        re1['time'] = 10
-
-        users_recommendations[email].append(re1)
+        users_recommendations[email] = []
         re = {}
-        re['id'] = 1
-        re['workout_type'] = 'Cycling'
-        re['distance'] = 20
-        re['time'] = 20
-
+        re['id'] = 0
+        re['workout_type'] = 'Running'
+        re['distance'] = 10
+        re['time'] = 10
         users_recommendations[email].append(re)
+        re1 = {}
+        re1['id'] = 1
+        re1['workout_type'] = 'Cycling'
+        re1['distance'] = 20
+        re1['time'] = 20
+        users_recommendations[email].append(re1)
+        with open('database/users_recommendations.json', 'w') as write_file:
+            json.dump(users_recommendations, write_file)
+            
+        users_sleep[email] = []
+        with open('database/users_sleep.json', 'w') as write_file:
+            json.dump(users_sleep, write_file)
 
         return {'saved': True}
 
