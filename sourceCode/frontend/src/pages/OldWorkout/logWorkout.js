@@ -296,8 +296,14 @@ export default class LogWorkout extends Component {
                     if(res.data.saved) {
                         this.setState({ message: "A workout has been logged successfully" });
                         this.setState({ show: true });
+                        this.setState({ redirect: true });
                     }
-                    this.setState({ redirect: true });
+                    else {
+                        this.setState({ message: "Upgrade to full membership to log more workouts" });
+                        this.setState({ show: true });
+                        this.setState({ redirect: false });
+                    }
+                    
                 }
             )
         }

@@ -22,6 +22,7 @@ class SignUpPage extends React.Component {
         weight: '',
         password: '',
         confirm_password: '',
+        member: false,
         error_message: '',
         redirect: false
     };
@@ -106,7 +107,8 @@ class SignUpPage extends React.Component {
                             date_of_birth: this.state.date_of_birth,
                             height: this.state.height,
                             weight: this.state.weight,
-                            password: this.state.password
+                            password: this.state.password,
+                            member: this.state.member
                         }).then(
                             res => {
                                 if(res.data.saved) {
@@ -188,6 +190,12 @@ class SignUpPage extends React.Component {
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control type="password"
                             onChange={e => this.setState({ confirm_password: e.target.value })}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Member Subscription</Form.Label>
+                            <Form.Control type="checkbox"
+                            onChange={e => this.setState({ member: e.target.value })}
                             />
                         </Form.Group>
                         <Form.Group>

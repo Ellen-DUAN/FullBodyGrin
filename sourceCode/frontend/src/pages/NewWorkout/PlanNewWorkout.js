@@ -332,8 +332,13 @@ export default class PlanNewWorkout extends Component {
                     if(res.data.saved) {
                         this.setState({ message: "A new workout has been created successfully" });
                         this.setState({ show: true });
+                        this.setState({ redirect: true });
                     }
-                    this.setState({ redirect: true });
+                    else {
+                        this.setState({ message: "Upgrade to full membership to plan more workouts" });
+                        this.setState({ show: true });
+                        this.setState({ redirect: false });
+                    }
                 }
             )
         }

@@ -90,6 +90,7 @@ else:
         users_sleep = json.load(read_file)
 
 loggedin_user = None
+member_limit = 5
 
 # loggIn class
 class loggedIn(Resource):
@@ -130,6 +131,7 @@ class signUp(Resource):
         parser.add_argument('height', type=int)
         parser.add_argument('weight', type=int)
         parser.add_argument('password', type=str)
+        parser.add_argument('member', type=bool)
 
         args = parser.parse_args()
 
@@ -139,6 +141,7 @@ class signUp(Resource):
         height = args['height']
         weight = args['weight']
         password = args['password']
+        member = args['member']
 
         # Check date of birth
 
@@ -149,7 +152,8 @@ class signUp(Resource):
             'date_of_birth': date_of_birth,
             'height': height,
             'weight': weight,
-            'password': password
+            'password': password,
+            'member': member
         }) 
         with open('database/users.json', 'w') as write_file:
             json.dump(users, write_file)
@@ -210,6 +214,10 @@ class logIn(Resource):
 
         email = args['email']
         password = args['password']
+        for user in users:
+            if(user['email']==email):
+                member = user['member']
+                break
 
         if(not users):
             return {'login': False}
@@ -219,7 +227,7 @@ class logIn(Resource):
             if(user['email'] == email and user['password'] == password):
                 loggedin = True
                 global loggedin_user 
-                loggedin_user = {'email': email, 'weight': user['weight'] }
+                loggedin_user = {'email': email, 'weight': user['weight'], 'member': member }
                 return {'login': True}
 
         if(not loggedin):
@@ -230,6 +238,7 @@ class planNewWorkout(Resource):
     def post(self):
 
         email = loggedin_user['email']
+        member = loggedin_user['member']
         parser.add_argument('completion_date')
         parser.add_argument('workout_type', type=str)
         parser.add_argument('mapjson')
@@ -238,6 +247,8 @@ class planNewWorkout(Resource):
         parser.add_argument('time_taken')
 
         args = parser.parse_args()
+        if(len(users_new_workouts[email])>=member_limit and member=="False"):
+            return {'saved': False}
         currentUserWeight = loggedin_user['weight']
         completion_date = args['completion_date']
         completion_date = completion_date[:10]
@@ -375,6 +386,7 @@ class deleteWorkout(Resource):
 class logWorkout(Resource):
     def post(self):
         email = loggedin_user['email']
+        member = loggedin_user['member']
         parser.add_argument('id')
         parser.add_argument('date')
         parser.add_argument('workout_type')
@@ -385,6 +397,10 @@ class logWorkout(Resource):
         parser.add_argument('pace')
 
         args = parser.parse_args()
+
+        if(len(users_old_workouts[email])>=member_limit and member=="False"):
+            return {'saved': False}
+
         date = args['date']
         date = date[:10]
         date = datetime.datetime.strptime(date, "%Y-%m-%d")
@@ -720,11 +736,15 @@ class logSleep(Resource):
     def post(self):
 
         email = loggedin_user['email']
+        member = loggedin_user['member']
         parser.add_argument('date')
         parser.add_argument('time')
         parser.add_argument('feeling')
 
         args = parser.parse_args()
+
+        if(len(users_sleep[email])>=member_limit and member=="False"):
+            return {'saved': False}
 
         date = args['date']
         date = date[:10]

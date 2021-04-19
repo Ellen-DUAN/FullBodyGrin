@@ -91,6 +91,11 @@ export default class LogSleep extends React.Component {
                         this.setState({ redirect:true });
                         this.setState({ message: 'New sleep data has been logged!' });
                     }
+                    else {
+                        this.setState({ message: "Upgrade to full membership to log more sleeps" });
+                        this.setState({ show: true });
+                        this.setState({ redirect: false });
+                    }
                 }
             );
         }
