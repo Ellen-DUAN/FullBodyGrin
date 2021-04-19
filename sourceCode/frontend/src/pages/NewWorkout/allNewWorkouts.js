@@ -57,7 +57,7 @@ class allNewWorkouts extends React.Component {
         },
         {
             dataField: 'time_taken',
-            text: 'Time Taken'
+            text: 'Time Taken (Minutes)'
         }
     ];
 

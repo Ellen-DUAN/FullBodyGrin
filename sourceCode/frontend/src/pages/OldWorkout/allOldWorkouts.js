@@ -58,11 +58,11 @@ class allOldWorkouts extends React.Component {
         },
         {
             dataField: 'time_spent',
-            text: 'Time Spent'
+            text: 'Time Spent (Minutes)'
         },
         {
             dataField: 'pace',
-            text: 'Pace'
+            text: 'Pace (km/h)'
         }
     ];
 

@@ -610,7 +610,7 @@ export default class PlanNewWorkout extends Component {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Time Taken</Form.Label>
+                    <Form.Label>Time Taken (Minutes)</Form.Label>
                     <Form.Control disabled className='editable' value={this.state.time_taken} type="number"
                     onChange={e => this.setState({ time_taken: e.target.value })}
                     />

@@ -407,10 +407,10 @@ class logWorkout(Resource):
         workout['date'] = true_date
         workout['workout_type'] = workout_type
         workout['mapjson'] = mapjson
-        workout['distance'] = distance
+        workout['distance'] = round(float(distance),2)
         workout['calories_burnt'] = (METS*currentUserWeight)*time_taken_hours
         workout['time_spent'] = time_spent
-        workout['pace'] = pace
+        workout['pace'] = round((float(distance) / (float(time_spent)/60)),2)
     
         users_old_workouts[email].append(workout)
         with open('database/users_old_workouts.json', 'w') as write_file:

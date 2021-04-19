@@ -390,7 +390,7 @@ export default class LogWorkout extends Component {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Time Spent</Form.Label>
+                    <Form.Label>Time Spent (Minutes) </Form.Label>
                     <Form.Control value={this.state.time_spent} type="number"
                     onChange={e => this.setState({ time_spent: e.target.value })}
                     />
