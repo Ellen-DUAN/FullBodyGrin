@@ -4,6 +4,7 @@ import datetime
 import json
 import os
 
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -525,7 +526,29 @@ class createNewGoal(Resource):
         with open('database/users_goals.json', 'w') as write_file:
 	        json.dump(users_goals, write_file)
 
+        createNewRecommendation(goal)
+
         return {'saved': True}        
+
+
+def createNewRecommendation(newGoal):
+    email = loggedin_user['email']
+
+    # calculates the number of dys until the goal is due
+    end_date = datetime.datetime.strptime(newGoal['completion_date'], "%Y-%m-%d")
+    cur_date = datetime.datetime.now()
+    timedelta = end_date - cur_date
+    numDaysToComplete = timedelta
+
+
+    new_recommendation = {}
+    new_recommendation['id'] = len(users_recommendations[email])
+    new_recommendation['workout_type'] = newGoal['workout_type']
+    new_recommendation['distance'] = int(newGoal['total_distance']/(numDaysToComplete.days + 1))
+    new_recommendation['time'] = int(newGoal['total_time']/(numDaysToComplete.days + 1))
+    users_recommendations[email].append(new_recommendation)
+    with open('database/users_recommendations.json', 'w') as write_file:
+	        json.dump(users_recommendations, write_file)
 
 
 # getGoalRecommendation class
