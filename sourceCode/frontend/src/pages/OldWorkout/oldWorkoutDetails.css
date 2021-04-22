@@ -1,0 +1,33 @@
+.blue-circle {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #088;
+    border-radius: 15px;
+    background-color: #0FF;
+    opacity: 0.5;
+    z-index: 9999; /* Watch out for this!!! */
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+#new_workout_form {
+    width: 70%;
+    margin: auto;
+}
+
+h1 {
+    margin: 50px 0 50px 0;
+    text-align: center;
+}
+
+.edit {
+    margin-right: 50px;
+    display: none;
+}
+
+#deleteBtn {
+    margin-left: 60px;
+}

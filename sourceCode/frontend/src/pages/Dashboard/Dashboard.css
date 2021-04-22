@@ -1,0 +1,9 @@
+.card {
+    margin-top: 30%;
+    opacity: 90%;
+}
+
+.inner_card {
+    background-color: #e6e6e6;
+    margin: auto;
+}

@@ -1,0 +1,30 @@
+tbody>tr:hover {
+    background-color: #c4c4c4;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+#table {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+p {
+    margin: 0 20px 0 0;
+}
+
+#backBtn {
+    margin: 0 0 50px 60px;
+}
