@@ -338,9 +338,11 @@ export default class PlanNewWorkout extends Component {
             ).then(
                 res => {
                     if(res.data.updated) {
-                        this.setState({ message: 'Changes have been saved successfully!' });
-                        this.setState({ showSave: true });
-                        this.setState({ redirect: true });
+                        this.setState({ message: 'Changes have been saved successfully!' }, () => {
+                            this.setState({ showSave: true });
+                            this.setState({ redirect: true });
+                        });
+              
                     }
 
                 }
