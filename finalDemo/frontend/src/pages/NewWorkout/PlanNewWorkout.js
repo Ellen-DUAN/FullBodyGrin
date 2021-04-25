@@ -309,7 +309,7 @@ export default class PlanNewWorkout extends Component {
             this.setState({ show: true });
         } else if(this.state.distance == 0) {
             console.log('distance error');
-            this.setState({ message: 'Provide draw a path on the map!' });
+            this.setState({ message: 'Please draw a path on the map!' });
             this.setState({ show: true });
         } else if(this.state.time_taken <= 0) {
             console.log('time error');
